@@ -13,10 +13,10 @@ cfg_if::cfg_if! {
                 sha1_asm::compress(state, block);
             }
         }
-    } else if #[cfg(any(target_arch = "x86", target_arch = "x86_64"))] {
-        mod soft;
-        mod x86;
-        use x86::compress as compress_inner;
+    // } else if #[cfg(any(target_arch = "x86", target_arch = "x86_64"))] {
+    //     mod soft;
+    //     mod x86;
+    //     use x86::compress as compress_inner;
     } else {
         mod soft;
         use soft::compress as compress_inner;
